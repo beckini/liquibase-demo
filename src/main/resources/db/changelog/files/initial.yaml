@@ -1,0 +1,47 @@
+databaseChangeLog:
+  - changeSet:
+      id: "setup-table-temporals"
+      author: "Dirk"
+      changes:
+        - createTable:
+            tableName: temporals
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: valid_from
+                  type: datetime
+                  constraints:
+                    nullable: false
+              - column:
+                  name: valid_to
+                  type: datetime
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: datetime
+                  constraints:
+                    nullable: false
+              - column:
+                  name: modified_at
+                  type: datetime
+                  constraints:
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(256)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: text
+                  type: clob
+              - column:
+                  name: double_value
+                  type: double
+
+
