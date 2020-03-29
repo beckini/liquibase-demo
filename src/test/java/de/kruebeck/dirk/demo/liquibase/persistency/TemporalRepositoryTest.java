@@ -9,16 +9,16 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 
+import static de.kruebeck.dirk.demo.liquibase.TestUtils.createAndSaveRandomEntities;
+import static de.kruebeck.dirk.demo.liquibase.TestUtils.createRandomEntity;
 import static org.junit.jupiter.api.Assertions.*;
 
 
 @SpringBootTest
 public class TemporalRepositoryTest {
 
-    public static final Random R = new Random();
-
     @Autowired
-    private TemporalRepository temporalRepository;
+    protected TemporalRepository temporalRepository;
 
     @AfterEach
     public void cleanup() {
@@ -103,31 +103,7 @@ public class TemporalRepositoryTest {
     }
 
 
-    // must be called within transacion context
-    private static List<TemporalEntity> createAndSaveRandomEntities(TemporalRepository repository, String namePrefix, int amount) {
-        List<TemporalEntity> result = new ArrayList<>();
 
-        for(int i = 0; i < amount; i++) {
-            TemporalEntity entity = createRandomEntity(namePrefix + "-" + i);
-            result.add(repository.save(entity));
-        }
-
-        return result;
-    }
-
-
-    private static TemporalEntity createRandomEntity(String name) {
-        TemporalEntity entity = new TemporalEntity();
-
-        entity.setId(UUID.randomUUID());
-
-        entity.setValidFrom(Instant.now().minus(1 + R.nextInt(10), ChronoUnit.DAYS));
-        entity.setValidTo(Instant.now().plus(1 + R.nextInt(10), ChronoUnit.DAYS));
-
-        entity.setName(name);
-
-        return entity;
-    }
 
 
 }
