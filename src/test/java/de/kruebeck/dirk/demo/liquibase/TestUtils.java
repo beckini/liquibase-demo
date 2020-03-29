@@ -35,6 +35,8 @@ public class TestUtils {
         entity.setValidFrom(Instant.now().minus(1 + R.nextInt(10), ChronoUnit.DAYS));
         entity.setValidTo(Instant.now().plus(1 + R.nextInt(10), ChronoUnit.DAYS));
 
+        //entity.setMandatoryInt(R.nextInt());
+
         entity.setName(name);
 
         return entity;

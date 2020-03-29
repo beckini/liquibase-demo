@@ -1,0 +1,39 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: "setup-another-table"
+      author: "Dirk"
+      changes:
+        - createTable:
+            tableName: another
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: test
+                  type: varchar(256)
+
+
+  - changeSet:
+      id: "change-temporals-table"
+      author: "Dirk"
+      changes:
+        - addColumn:
+            tableName: temporals
+            columns:
+              - column:
+                  name: mandatory_int
+                  type: int
+                  defaultValueNumeric: 0
+                  constraints:
+                    nullable: false
+        - createIndex:
+            columns:
+              - column:
+                  name: valid_from
+            indexName: idx_valid_from
+            tableName: temporals

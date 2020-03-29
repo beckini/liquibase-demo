@@ -1,3 +1,5 @@
 databaseChangeLog:
   - include:
-     file: db/changelog/files/initial.yaml
+      file: db/changelog/files/initial.yaml
+  - include:
+      file: db/changelog/files/nextFeature.yaml

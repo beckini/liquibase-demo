@@ -27,8 +27,11 @@ public class TemporalEntity {
 
     // payload / data
     private String text;
+
     @Column(name = "double_value")
     private Double longNamedDoubleValue;
+
+    //private int mandatoryInt;
 
     public TemporalEntity(UUID id) {
         this.id = id;
