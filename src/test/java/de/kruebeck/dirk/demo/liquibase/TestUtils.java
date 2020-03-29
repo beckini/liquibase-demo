@@ -18,7 +18,7 @@ public class TestUtils {
     public static List<TemporalEntity> createAndSaveRandomEntities(TemporalRepository repository, String namePrefix, int amount) {
         List<TemporalEntity> result = new ArrayList<>();
 
-        for(int i = 0; i < amount; i++) {
+        for (int i = 0; i < amount; i++) {
             TemporalEntity entity = createRandomEntity(namePrefix + "-" + i);
             result.add(repository.save(entity));
         }

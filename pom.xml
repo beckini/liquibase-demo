@@ -117,6 +117,7 @@
 									<alias>it-database</alias>
 									<external>
 										<type>compose</type>
+										<basedir>src/main/docker</basedir>
 										<composeFile>docker-compose.yml</composeFile>
 									</external>
 								</image>

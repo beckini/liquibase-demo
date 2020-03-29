@@ -7,7 +7,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
-import java.util.*;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 import static de.kruebeck.dirk.demo.liquibase.TestUtils.createAndSaveRandomEntities;
 import static de.kruebeck.dirk.demo.liquibase.TestUtils.createRandomEntity;
@@ -101,9 +103,6 @@ public class TemporalRepositoryTest {
 
         assertEquals(0, findList.size());
     }
-
-
-
 
 
 }

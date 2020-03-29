@@ -15,31 +15,24 @@ import java.util.UUID;
 @NoArgsConstructor
 public class TemporalEntity {
 
-    public TemporalEntity(UUID id) {
-        this.id = id;
-    }
-
-    // pk, temporal validity, audit
-
     @Id
     private UUID id;
 
+    // pk, temporal validity, audit
     private Instant validFrom;
-
     private Instant validTo;
-
     private Instant createdAt;
-
     private Instant modifiedAt;
-
-    // payload / data
-
     private String name;
 
+    // payload / data
     private String text;
-
     @Column(name = "double_value")
     private Double longNamedDoubleValue;
+
+    public TemporalEntity(UUID id) {
+        this.id = id;
+    }
 
     @PreUpdate
     private void preUpdate() {
